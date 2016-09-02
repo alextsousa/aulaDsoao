@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:facet name="first">
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+            <title>DSOAO</title>
+        </f:facet>
+
+    </h:head>
+    <p:layout fullPage="true">
+
+        <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+            <h1>Exercício 01 - JFS + PrimeFaces </h1>
+        </p:layoutUnit>
+
+        <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+            Desenvolvido por Alexander - Facthus
+        </p:layoutUnit>
+
+
+
+        <p:layoutUnit position="center"  size="50%">
+            <h2>Calculadora 01</h2>
+
+            <h:form id="calculadora">
+                <h:panelGrid columns="2" cellpadding="5">
+
+                    <p:outputLabel for="n1" value="Primeiro número:"/> 
+                    <h:inputText id="n1" value="#{mainController.n1}"/>
+
+
+
+                    <p:outputLabel for="n2" value="Segundo número:"/>
+                    <h:inputText id="n2" value="#{mainController.n2}"/>
+
+
+                    <p:outputLabel for="operacao" value="Operação:" />
+                    <p:selectOneMenu id="operacao"
+                                     value="#{mainController.operacao}">
+                        <f:selectItem itemLabel="Selecione"
+                                      itemValue="" />
+                        <f:selectItems
+                            value="#{mainController.operacoes}" />
+                    </p:selectOneMenu>
+
+
+                    <p:commandButton value="Executar" action="#{mainController.executa()}" update="calculadora"/>
+                    <p:commandButton value="Comparação" action="#{mainController.comparar()}" update="calculadora"/>
+                    <p:commandButton value="Limpar" action="#{mainController.limpar()}" update="calculadora"/>
+
+
+
+
+                </h:panelGrid>
+
+                <h:panelGrid columns="2" cellpadding="5" border="1">
+                    <p:outputLabel for="resultado" value="Resultado:"/> 
+                    <h:outputText id="resultado" value="#{mainController.resultado}"/>
+
+                </h:panelGrid>
+
+            </h:form>
+
+
+
+            <br/><br/>
+
+
+        </p:layoutUnit> <!-- Final West-->
+
+
+
+
+
+
+        <p:layoutUnit position="west" size="50%">
+
+            <h2>Calculadora 02</h2>
+
+            <h:form id="calculadora2">
+                <h:panelGrid columns="2" cellpadding="5">
+
+                    <p:outputLabel for="nu1" value="Primeiro número:"/> 
+                    <h:inputText id="nu1" value="#{mainController.n1}"/>
+
+
+
+                    <p:outputLabel for="nu2" value="Segundo número:"/>
+                    <h:inputText id="nu2" value="#{mainController.n2}"/>
+
+
+                    <p:commandButton value="+" action="#{mainController.somar()}" update="resultado2"/>
+                    <p:commandButton value="-" action="#{mainController.subtrair()}" update="calculadora2"/>
+                    <p:commandButton value="/" action="#{mainController.dividir()}" update="calculadora2"/>
+                    <p:commandButton value="*" action="#{mainController.multiplicar()}" update="calculadora2"/>
+                    <p:commandButton value="Comparação" action="#{mainController.comparar()}" update="calculadora2"/>
+                    <p:commandButton value="Limpar" action="#{mainController.limpar()}" update="calculadora2"/>
+
+
+
+
+                </h:panelGrid>
+
+                <h:panelGrid columns="2" cellpadding="5" border="1">
+                    <p:outputLabel for="resultado2" value="Resultado2:"/> 
+                    <h:outputText id="resultado2" value="#{mainController.resultado}"/>
+
+                </h:panelGrid>
+
+            </h:form>
+
+
+
+
+
+
+        </p:layoutUnit>
+
+    </p:layout>
+
+    <h:body>
+
+
+    </h:body>
+</html>
+

@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+
+    </h:head>
+
+    <h:body>
+        <p:layout fullPage="true">
+
+            <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                <h1>Aula 03 PrimeFaces </h1>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                Desenvolvido por Alexander - Facthus
+            </p:layoutUnit>
+
+            <p:layoutUnit position="west" size="50%">
+                <h:form id="formPrincipal">
+                    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                        <p:outputLabel for="console" value="Console:" />
+                        <p:selectOneRadio id="console" layout="pageDirection" value="#{aula03.console}">
+                            <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                            <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                            <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                        </p:selectOneRadio>
+                    </h:panelGrid>
+
+                    <p:commandButton value="Clique Aqui" update="formPrincipal" action="#{aula03.imprimeSelecao()}"/>
+                    <br/>
+                    <p:outputLabel value="#{aula03.mensagem}"/>
+                </h:form>
+            </p:layoutUnit>
+
+
+            <p:layoutUnit position="center"  size="50%">
+
+                <h3>Cadastro</h3>
+
+                <h:form id="cadastro">
+                    <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="5">
+
+                        <p:outputLabel for="nome" value="Nome: "/>
+                        <h:inputText id="nome" value="#{aula03.nome}"/>
+
+                        <p:outputLabel for="email" value="E-mail: "/>
+                        <h:inputText id="email" value="#{aula03.email}"/>
+
+
+                        <p:outputLabel for="curso" value="Curso: "/>
+                        
+                        <p:selectOneRadio id="curso"
+                                          layout="pageDirection"
+                                          value="#{aula03.curso}">
+                            <f:selectItem
+                                itemLabel="Sistemas de Informação"
+                                itemValue="si" />
+                            <f:selectItem
+                                itemLabel="Redes de Computadores"
+                                itemValue="rc" />
+                        </p:selectOneRadio>
+                    </h:panelGrid>
+
+
+                    <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="5">
+                        <!-- Disciplina-->
+                        <p:outputLabel for="alg"
+                                       value="Algoritmos" />
+                        <p:selectBooleanCheckbox id="alg"
+                                                 value="#{aula03.alg}" />
+                        <p:outputLabel for="poo"
+                                       value="POO" />
+                        <p:selectBooleanCheckbox id="poo"
+                                                 value="#{aula03.poo}" />
+                        <p:outputLabel for="dsoo"
+                                       value="DSOO" />
+                        <p:selectBooleanCheckbox id="dsoo"
+                                                 value="#{aula03.dsoo}" />
+
+
+                        <!--fim disciplina-->
+
+
+                        <f:facet name="footer">
+                            <p:commandButton value="Cadastrar" update="cadastro" action="#{aula03.cadastra()}" />
+                        </f:facet>
+
+                        <f:facet name="header">
+                            <p:outputLabel value="#{aula03.msg}"/>
+                        </f:facet>
+                    </h:panelGrid>
+
+
+                </h:form>
+
+
+            </p:layoutUnit>
+
+
+
+
+
+
+
+
+
+
+        </p:layout>
+
+
+
+    </h:body>
+</html>
+
