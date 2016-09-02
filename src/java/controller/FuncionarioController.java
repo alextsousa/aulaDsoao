@@ -24,15 +24,10 @@ public class FuncionarioController {
 
     @ManagedProperty("#{funcionarioService}")
     private FuncionarioService funcionarioService;
-
+    private Funcionario funcionario = new Funcionario();
     private List<Funcionario> funcionarios;
 
-    private Integer codigo; 
-    private String nome;
-    private String email;
-    private Date dataNasc;
-    private Double comissao;
-    private Double salario;
+    
 
     @PostConstruct
     public void init() {
@@ -40,25 +35,11 @@ public class FuncionarioController {
     }
 
     public void cadastrar() {
-        Funcionario f1 = new Funcionario();
-        f1.setCodigo(codigo);
-        f1.setNome(nome);
-        f1.setEmail(email);
-        f1.setDataNasc(dataNasc);
-        f1.setComissao(comissao);
-        f1.setSalario(salario);
-        funcionarios.add(f1);
+        
+        funcionarios.add(funcionario);
+        funcionario = new Funcionario();
     }
 
-    public List<Funcionario> getFuncionarios() {
-        return funcionarios;
-    }
-
-    public void setFuncionarios(List<Funcionario> funcionarios) {
-        this.funcionarios = funcionarios;
-    }
-    
-    
     public FuncionarioService getFuncionarioService() {
         return funcionarioService;
     }
@@ -67,60 +48,20 @@ public class FuncionarioController {
         this.funcionarioService = funcionarioService;
     }
 
-    public List<Funcionario> getFuncionario() {
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
+    }
+
+    public List<Funcionario> getFuncionarios() {
         return funcionarios;
     }
 
-    public void setFuncionario(List<Funcionario> funcionario) {
-        this.funcionarios = funcionario;
-    }
-
-    public Integer getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(Integer codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Date getDataNasc() {
-        return dataNasc;
-    }
-
-    public void setDataNasc(Date dataNasc) {
-        this.dataNasc = dataNasc;
-    }
-
-    public Double getComissao() {
-        return comissao;
-    }
-
-    public void setComissao(Double comissao) {
-        this.comissao = comissao;
-    }
-
-    public Double getSalario() {
-        return salario;
-    }
-
-    public void setSalario(Double salario) {
-        this.salario = salario;
+    public void setFuncionarios(List<Funcionario> funcionarios) {
+        this.funcionarios = funcionarios;
     }
 
     

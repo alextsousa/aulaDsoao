@@ -55,7 +55,7 @@
 
 
 
-            <p:dataTable var="funcionario" value="#{funcinarioController.listaFuncionarios}">
+            <p:dataTable value="#{funcinarioController.listaFuncionarios}" var="funcionario" >
 
                 <p:column headerText="Código">
                     <h:outputText value="#{funcionario.codigo}">

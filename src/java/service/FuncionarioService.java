@@ -27,6 +27,8 @@ public class FuncionarioService {
      * Creates a new instance of ProdutoService
      */
     public FuncionarioService() {
+        
+        
     }
 
     public List<Funcionario> getFuncionarios() {
