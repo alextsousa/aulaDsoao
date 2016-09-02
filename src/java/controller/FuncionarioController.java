@@ -5,13 +5,14 @@
  */
 package controller;
 
-import Model.Produto;
+import Model.Funcionario;
+import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import service.ProdutoService;
+import service.FuncionarioService;
 
 /**
  *
@@ -21,38 +22,57 @@ import service.ProdutoService;
 @ViewScoped
 public class FuncionarioController {
 
-    @ManagedProperty("#{produtoService}")
-    private ProdutoService produtoService;
+    @ManagedProperty("#{funcionarioService}")
+    private FuncionarioService funcionarioService;
 
-    private List<Produto> produtos;
+    private List<Funcionario> funcionarios;
 
-    private Integer codigo;
-    private String desc;
-    private Double preco;
+    private Integer codigo; 
+    private String nome;
+    private String email;
+    private Date dataNasc;
+    private Double comissao;
+    private Double salario;
 
     @PostConstruct
     public void init() {
-        produtos = produtoService.getProdutos();
+        funcionarios = funcionarioService.getFuncionarios();
     }
 
     public void cadastrar() {
-        
+        Funcionario f1 = new Funcionario();
+        f1.setCodigo(codigo);
+        f1.setNome(nome);
+        f1.setEmail(email);
+        f1.setDataNasc(dataNasc);
+        f1.setComissao(comissao);
+        f1.setSalario(salario);
+        funcionarios.add(f1);
     }
 
-    public ProdutoService getProdutoService() {
-        return produtoService;
+    public List<Funcionario> getFuncionarios() {
+        return funcionarios;
     }
 
-    public void setProdutoService(ProdutoService produtoService) {
-        this.produtoService = produtoService;
+    public void setFuncionarios(List<Funcionario> funcionarios) {
+        this.funcionarios = funcionarios;
+    }
+    
+    
+    public FuncionarioService getFuncionarioService() {
+        return funcionarioService;
     }
 
-    public List<Produto> getProdutos() {
-        return produtos;
+    public void setFuncionarioService(FuncionarioService funcionarioService) {
+        this.funcionarioService = funcionarioService;
     }
 
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
+    public List<Funcionario> getFuncionario() {
+        return funcionarios;
+    }
+
+    public void setFuncionario(List<Funcionario> funcionario) {
+        this.funcionarios = funcionario;
     }
 
     public Integer getCodigo() {
@@ -63,24 +83,47 @@ public class FuncionarioController {
         this.codigo = codigo;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getNome() {
+        return nome;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public Double getPreco() {
-        return preco;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPreco(Double preco) {
-        this.preco = preco;
+    public void setEmail(String email) {
+        this.email = email;
     }
+
+    public Date getDataNasc() {
+        return dataNasc;
+    }
+
+    public void setDataNasc(Date dataNasc) {
+        this.dataNasc = dataNasc;
+    }
+
+    public Double getComissao() {
+        return comissao;
+    }
+
+    public void setComissao(Double comissao) {
+        this.comissao = comissao;
+    }
+
+    public Double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(Double salario) {
+        this.salario = salario;
+    }
+
     
-    
-
     /**
      * Creates a new instance of ProdutoController
      */

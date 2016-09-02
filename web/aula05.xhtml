@@ -19,32 +19,37 @@
 
         <h:form id="cadFuncionario" >
             <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-                
+
                 <p:outputLabel for="codigo" value="Código:" />
-                <p:inputText id="codigo" value="#{funcinarioController.funcionario.codigo}" />
+                <p:inputText id="codigo" value="#{funcionarioController.codigo}" />
 
                 <p:outputLabel for="nome" value="Nome:" />
                 <p:inputText id="nome" value="#{
-                             funcinarioController.funcionario.nome}" />
+                             funcionarioController.nome}" />
 
                 <p:outputLabel for="email" value="Email:" />
                 <p:inputText id="email" value="#{
-                             funcinarioController.funcionario.email}" />
+                             funcionarioController.email}" />
 
                 <p:outputLabel for="dtNascimento" value="Data Nascimento:" />
-                <p:inputText id="dtNascimento" value="#{funcinarioController.funcionario.dataNasc}">
+                <p:inputText id="dtNascimento" value="#{funcionarioController.dataNasc}">
                     <f:convertDateTime pattern="dd/MM/yyyy" /> </p:inputText>
 
                 <p:outputLabel for="comissao" value="Comissão: " />
-                <p:inputText id="comissao" value="#{funcinarioController.funcionario.comissao}" />
+                <p:inputText id="comissao" value="#{funcionarioController.comissao}" >
+                   
+                </p:inputText>
 
                 <p:outputLabel for="salario" value="Salário: " />
-                <p:inputText id="salario" value="#{funcinarioController.funcionario.salario}" />
+                <p:inputText id="salario" value="#{funcionarioController.salario}">
 
-                <p:commandButton value="Cadastrar" action="#{funcinarioController.cadastrar()}"
+                    
+                </p:inputText>
+
+                <p:commandButton value="Cadastrar" action="#{funcionarioController.cadastrar()}"
                                  update="cadFuncionario"/>
-                
-               
+
+
             </h:panelGrid>
 
 
